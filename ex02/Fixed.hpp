@@ -6,7 +6,7 @@
 /*   By: bince < bince@student.42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 16:43:32 by bince             #+#    #+#             */
-/*   Updated: 2024/11/24 19:12:08 by bince            ###   ########.fr       */
+/*   Updated: 2024/11/24 19:12:43 by bince            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,27 @@ class Fixed
 		Fixed(const int intVal);
 		Fixed(const float fVal);
 		Fixed(Fixed const &src);
-		Fixed &operator = (Fixed const &src);
 		~Fixed();
 
+		Fixed &operator= (Fixed const &src);
+		Fixed operator+(Fixed const &src) const;
+		Fixed operator-(Fixed const &src) const;
+		Fixed operator*(Fixed const &src) const;
+		Fixed operator/(Fixed const &src) const;
+		bool operator<(Fixed const &src) const;
+		bool operator>(Fixed const &src) const;
+		bool operator<=(Fixed const &src) const;
+		bool operator>=(Fixed const &src) const;
+		bool operator==(Fixed const &src) const;
+		bool operator!=(Fixed const &src) const;
+		Fixed &operator++();
+		Fixed operator++(int);
+		Fixed &operator--();
+		Fixed operator--(int);
+		static Fixed &min(Fixed &lhs, Fixed &rhs);
+		static Fixed const &min(Fixed const &lhs, Fixed const &rhs);
+		static Fixed &max(Fixed &lhs, Fixed &rhs);
+		static Fixed const &max(Fixed const &lhs, Fixed const &rhs);
 		int getRawBits() const;
 		void setRawBits(int const raw);
 		int toInt() const;
